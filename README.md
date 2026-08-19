@@ -214,6 +214,7 @@ connect agents, and writes a full reference to **`helper.md`** in the script dir
 
 ## Troubleshooting
 
+- **Access issues with remote nodes: Check the private and public access keys (on the remote should have the public key in authorized_hosts) as this is the likely cause**
 - **`puppet code deploy` fails with `invalid or unknown remote ssh hostkey`** (gitnano):
   set `r10k_known_hosts` on `puppet_enterprise::profile::master` and run
   `puppet agent -t` on the master. Regenerate with `ssh-keyscan -t ed25519 <core0>`.
