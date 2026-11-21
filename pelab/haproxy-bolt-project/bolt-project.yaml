@@ -1,0 +1,6 @@
+---
+name: haproxybolt
+modules:
+- name: puppetlabs-haproxy
+plans:
+- xhaproxy

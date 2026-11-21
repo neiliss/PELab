@@ -1,0 +1,8 @@
+<%- | Sensitive[String] $db_password | -%>
+# =========================================================================
+# This file is dynamically managed by Puppet.
+# Stored strictly inside Volatile Memory (tmpfs). No persistent storage footprint.
+# =========================================================================
+[database]
+user = "app_runner"
+password = "<%= $db_password.unwrap %>"

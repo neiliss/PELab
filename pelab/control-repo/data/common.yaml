@@ -1,0 +1,40 @@
+---
+message: "This node is using common data"
+puppet_enterprise::profile::console::rbac_session_timeout: 240
+puppet_enterprise::profile::console::display_local_time: true
+# The forge + bearer token are used ONLY by forgenano (to mirror the module
+# catalog into the local forge).  They are deliberately NOT forced here for
+# puppet/r10k – puppet and r10k must use whatever forge the control-repo
+# Puppetfile declares.  allow_puppetfile_override keeps the Puppetfile's
+# `forge` directive in control.
+pe_r10k::forge_settings:
+  allow_puppetfile_override: true
+puppet_enterprise::master::code_manager::forge_settings:
+  allow_puppetfile_override: true
+#POD
+#puppet_operational_dashboards::profile::dashboards::grafana_version: '12.3.0'
+#puppet_operational_dashboards::enterprise_infrastructure::template_format: 'yaml'
+#puppet_operational_dashboards::telegraf::agent::version: 'latest'
+
+#Prometheus Fed targets
+#profile::observability::prometheus_fed::targets:
+#  - 'labstdcore0.example.com:9090'
+#  - 'labnewcore0.example.com:9090'
+
+# Nessus stuff
+# Connection Details
+nessus_transformer::scan_reports_source_address: "127.0.0.1"
+nessus_transformer::scan_reports_source_port: 9000
+nessus_transformer::scan_reports_source_protocol: "https"
+nessus_transformer::scan_reports_source_insecure_ssl: true
+
+---
+# Required Validation Keys
+nessus_transformer::scan_reports_source_access_key: "dummy"
+nessus_transformer::scan_reports_source_secret_key: "dummy"
+nessus_transformer::scan_id: 1
+
+# Transformer Identity
+nessus_transformer::pe_token: ""  # set to your PE RBAC token (do not commit)
+nessus_transformer::scan_reports_source_scan_name: "Scanano-Feed"
+nessus_transformer::scan_name: "Scanano-Feed"

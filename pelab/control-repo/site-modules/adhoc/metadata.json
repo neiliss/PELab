@@ -1,0 +1,8 @@
+{
+  "name": "adhoc",
+  "version": "0.1.0",
+  "author": "repo-automation",
+  "summary": "Ad-hoc tasks for site-specific operations",
+  "license": "Apache-2.0",
+  "dependencies": []
+}

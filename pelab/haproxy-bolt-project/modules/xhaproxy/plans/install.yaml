@@ -1,0 +1,12 @@
+parameters:
+  targets:
+    type: TargetSpec
+
+steps:
+  - name: install_haproxy
+    task: package
+    targets: $targets
+    parameters:
+      action: install
+      name: haproxy
+    description: "Install haproxy using the packages task"
